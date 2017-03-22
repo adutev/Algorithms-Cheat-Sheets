@@ -1,0 +1,9 @@
+Applications:
+- Web crawling - indexing all new pages
+- Social networking - find nearest friends
+- Network broadcasting
+- Garbage collection
+- Solving puzzles games
+
+Steps:
+- visit all nodes, reachable from given step 
