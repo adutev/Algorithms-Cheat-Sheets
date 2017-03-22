@@ -1,0 +1,3 @@
+1. Prevent Console from closing. Right click on your project -> Properties>Configuration Properties> Linker> System ->select Console (/SUBSYSTEM:CONSOLE) in SubSystem option.
+2. Comment/Uncomment code -> Ctrl+K, Ctrl+C/U
+3. Fast format code -> Ctrl+K, Ctrl+F
