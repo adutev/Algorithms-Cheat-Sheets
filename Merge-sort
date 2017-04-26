@@ -1,0 +1,67 @@
+using System;
+
+namespace MergedSortRec
+{
+	class MainClass
+	{
+		static int[] numbers = new int[]{12, 11, 13, 5, 6, 7};
+		static int size = numbers.GetLength(0);
+
+		static void Merge (int[] arr, int left, int mid, int right)
+		{
+			int[] temp = new int[25];
+			int i, left_end, num_elements, tmp_pos;
+
+			left_end = (mid - 1);
+			tmp_pos = left;
+			num_elements = (right - left + 1);
+
+			while ((left <= left_end) && (mid <= right))
+			{
+				if (arr [left] <= arr [mid]) {
+					temp [tmp_pos++] = arr [left++];
+				} else {
+					temp [tmp_pos++] = arr [mid++];
+				}
+			}
+
+			while (left <= left_end) {
+				temp [tmp_pos++] = arr [left++];
+			}
+
+			while (mid <= right) {
+				temp [tmp_pos++] = arr [mid++];
+			}
+
+			for (i = 0; i < num_elements; i++)
+			{
+				numbers[right] = temp[right];
+				right--;
+			}
+		}
+
+		static void MergeSort (int[] arr, int l, int r)
+		{
+			int m;
+
+			if (r > l) {
+				m = (l + r) / 2;
+				MergeSort (arr, l, m);
+				MergeSort (arr, (m + 1), r);
+				Merge (arr, l, (m + 1), r);
+			}
+
+		}
+
+		public static void Main (string[] args)
+		{
+			Console.WriteLine ("Given array is ");
+			Console.WriteLine (String.Join(", ",numbers));
+
+			MergeSort(numbers, 0, size - 1);
+
+			Console.WriteLine("Sorted array is ");
+			Console.WriteLine (String.Join(", ",numbers));
+		}
+	}
+}
